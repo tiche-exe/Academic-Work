@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Study Dashboard</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>My Study Dashboard</h1>
+        <p id="welcomeMsg"></p>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html">Tasks</a>
+            <a href="index.html">Profile</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="card profile-card">
+            <h2>Mateo</h2>
+            <p>Student of Computer Science & Software Engineering at Maynooth University</p>
+            <img src="profile.jpg" alt="Me at a basketball game" width="200" height="200">
+        </section>
+
+        <section class="card goals-card">
+            <h2>Weekly Goals</h2>
+            <ul class="list">
+                <li>Finish College</li>
+                <li>Get drivers licence</li>
+                <li>Learn piano</li>
+                <li>Learn sign language</li>
+            </ul>
+            <button id="showGoalsButton">Show Goals</button>
+            <ul id="displayGoals"></ul>
+        </section>
+
+        <section class="card status-card">
+            <h2>Study Status</h2>
+            <p class="status">Status: Active</p>
+            <p>Study sessions today: <span id="count">0</span></p>
+            <button id="addSessionButton">Add Session</button>
+            <button id="resetSessionButton">Reset</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Mateo Inigo Lahera | CS230</p>
+        <p>Last updated: Mar 2026</p>
+        <p>This page is for tracking assignment progress</p>
+    </footer>
+</body>
+</html>
