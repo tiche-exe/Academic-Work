@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Library</title>
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!--external stylesheet-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!--top navigation bar-->
+    <nav>
+        <span class="logo">Music Library</span>
+        <div class="nav-links">
+            <!--using buttons instead of anchor tags to fix sonarqube accessibility warnings-->
+            <button onclick="showPage('home')" id="nav-home" class="nav-btn active">Home</button>
+            <button onclick="showPage('artists')" id="nav-artists" class="nav-btn">Artists</button>
+            <button onclick="showPage('albums')" id="nav-albums" class="nav-btn">Albums</button>
+            <button onclick="showPage('songs')" id="nav-songs" class="nav-btn">Songs</button>
+        </div>
+    </nav>
+
+    <main>
+
+        <!--HOME PAGE-->
+        <div class="page active" id="page-home">
+            <h1>Your Library</h1>
+            <!--stat cards use buttons to fix non-native interactive element warnings-->
+            <div class="stats">
+                <button class="stat" onclick="showPage('artists')">
+                    <span class="stat-num" id="stat-artists">—</span>
+                    <span class="stat-lbl">Artists</span>
+                </button>
+                <button class="stat" onclick="showPage('albums')">
+                    <span class="stat-num" id="stat-albums">—</span>
+                    <span class="stat-lbl">Albums</span>
+                </button>
+                <button class="stat" onclick="showPage('songs')">
+                    <span class="stat-num" id="stat-songs">—</span>
+                    <span class="stat-lbl">Songs</span>
+                </button>
+            </div>
+        </div>
+
+        <!--ARTISTS PAGE-->
+        <div class="page" id="page-artists">
+            <h1>Artists</h1>
+            <!--add artist form-->
+            <div class="form-card">
+                <div class="form-row">
+                    <div class="field">
+                        <!--for attribute links label to input for accessibility-->
+                        <label for="artist-name">Name</label>
+                        <input type="text" id="artist-name" placeholder="Artist name">
+                    </div>
+                    <div class="field">
+                        <label for="artist-genre">Genre</label>
+                        <input type="text" id="artist-genre" placeholder="e.g. Pop">
+                    </div>
+                    <div class="field">
+                        <label for="artist-listeners">Monthly Listeners</label>
+                        <input type="number" id="artist-listeners" placeholder="0">
+                    </div>
+                    <button class="btn btn-primary" onclick="createArtist()">Add</button>
+                </div>
+            </div>
+            <!--artists table, rows are filled by javascript-->
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>#</th><th>Name</th><th>Genre</th><th>Listeners</th><th></th></tr>
+                    </thead>
+                    <tbody id="artists-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!--ALBUMS PAGE-->
+        <div class="page" id="page-albums">
+            <h1>Albums</h1>
+            <!--add album form-->
+            <div class="form-card">
+                <div class="form-row">
+                    <div class="field">
+                        <label for="album-name">Name</label>
+                        <input type="text" id="album-name" placeholder="Album name">
+                    </div>
+                    <div class="field">
+                        <label for="album-year">Year</label>
+                        <input type="number" id="album-year" placeholder="2024">
+                    </div>
+                    <div class="field">
+                        <label for="album-listens">Listens</label>
+                        <input type="number" id="album-listens" placeholder="0">
+                    </div>
+                    <div class="field">
+                        <label for="album-artist">Artist</label>
+                        <!--dropdown populated by javascript-->
+                        <select id="album-artist"><option value="">Select...</option></select>
+                    </div>
+                    <button class="btn btn-primary" onclick="createAlbum()">Add</button>
+                </div>
+            </div>
+            <!--albums table, rows are filled by javascript-->
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>#</th><th>Name</th><th>Artist</th><th>Year</th><th>Listens</th><th></th></tr>
+                    </thead>
+                    <tbody id="albums-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!--SONGS PAGE-->
+        <div class="page" id="page-songs">
+            <h1>Songs</h1>
+            <!--add song form-->
+            <div class="form-card">
+                <div class="form-row">
+                    <div class="field">
+                        <label for="song-name">Name</label>
+                        <input type="text" id="song-name" placeholder="Song name">
+                    </div>
+                    <div class="field">
+                        <label for="song-year">Year</label>
+                        <input type="number" id="song-year" placeholder="2024">
+                    </div>
+                    <div class="field">
+                        <label for="song-album">Album</label>
+                        <!--dropdown populated by javascript-->
+                        <select id="song-album"><option value="">Select...</option></select>
+                    </div>
+                    <button class="btn btn-primary" onclick="createSong()">Add</button>
+                </div>
+            </div>
+            <!--songs table, rows are filled by javascript-->
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>#</th><th>Name</th><th>Album</th><th>Artist</th><th>Year</th><th></th></tr>
+                    </thead>
+                    <tbody id="songs-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!--toast notification shown briefly after any action-->
+    <div id="toast"></div>
+
+    <!--external javascript-->
+    <script src="script.js"></script>
+</body>
+</html>
