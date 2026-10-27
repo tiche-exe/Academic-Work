@@ -1,0 +1,240 @@
+/*default set spacing and sizing for all elements*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*navigation layout using flexbox*/
+nav {
+    display: flex;
+    gap: 30px;
+    font-weight: 550;
+}
+
+
+/*style for navigation links*/
+nav a {
+    text-decoration: none;
+    color: black;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+
+/*hover effect for navigation links*/
+nav a:hover {
+    color: #6b4f8c;
+    background-color: #e8d9ff;
+    text-decoration: underline;
+}
+
+
+/*general page styling*/
+body {
+    background-color: rgb(250, 245, 255);
+    font-family: Arial;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*header styling*/
+header {
+    background-color: #f8f7f8;
+    padding: 20px;
+}
+
+
+/*spacing under main title*/
+h1 {
+    margin-bottom: 10px;
+}
+
+
+/*main, uses flexbox to display cards in a row*/
+main {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+}
+
+
+/*styling for all section cards*/
+section.card {
+    font-family: Arial;
+    font-size: 15px;
+    width: 300px;
+    flex: 1 1 280px;
+    background-color: #f8f7f8;
+    padding: 20px;
+    border: 2px solid #c7c7c7;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*card title styling*/
+section.card h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+
+/*paragraph styling inside cards*/
+section.card p {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+
+/*profile image styling (only in profile card)*/
+.profile-card img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 25px;
+    max-width: 100%;
+}
+
+
+/*hover effect ONLY for profile card (using its class)*/
+.profile-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+
+/*weekly goals list styling (only in goals card)*/
+.goals-card .list {
+    list-style-type: square;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+
+/*pseudo-element that adds the ACTIVE label/color*/
+.status-card .status {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 15px;
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/*PENDING label/color
+.status-card .status {
+    background-color: #FF9800;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 25px;
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}*/
+
+
+
+
+/*button styling*/
+button {
+    background: #1e3c5c;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+
+/*button hover effect*/
+button:hover {
+    background: #0f2b43;
+}
+
+
+/*spacing under welcome message*/
+#welcomeMsg {
+    margin-bottom: 15px;
+}
+
+
+/*session counter number styling*/
+#count {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+/*area where javascript displays goals (only in goals card)*/
+.goals-card #displayGoals {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+
+/*footer styling*/
+footer {
+    background-color: #f8f7f8;
+    font-size: 12px;
+    text-align: center;
+    padding: 20px;
+    border-top: 2px dashed #b3c7db;
+}
+
+
+/*design for screens <=700px*/
+@media (max-width: 700px) {
+
+    /*main becomes column for stacked cards*/
+    main {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /*vertical nav*/
+    nav {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    /*smaller title*/
+    h1 {
+        font-size: 24px;
+    }
+
+    /*cards take full width*/
+    section.card {
+        width: 100%;
+    }
+
+    /*hide profile image in profile card only*/
+    .profile-card img {
+        display: none;
+    }
+
+    /*smaller header spacing*/
+    header {
+        padding: 15px;
+    }
+
+    /*smaller footer text and spacing*/
+    footer {
+        padding: 15px;
+        font-size: 11px;
+    }
+}
